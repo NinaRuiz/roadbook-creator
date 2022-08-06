@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Camada_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="98px" height="99px" viewBox="0 0 98 99" enable-background="new 0 0 98 99" xml:space="preserve">
+<polygon points="61,18 38,18 38,81 61,81 61,38.5 "/>
+<rect x="41" y="20.25" fill="#FFFFFF" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" width="17" height="15.625"/>
+<path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M61,38.5c0,0,0.75,0,5.125,0s6.291,6.75,7.125,9.625
+	c1.316,4.539,5.211,15.464,4.625,19.125c-0.5,3.125-2.375,6.375-7.625,6.375S64.625,65.5,64.625,65.5s0-31.25,0-35.375
+	S61,22.625,61,22.625"/>
+<ellipse cx="60.813" cy="24.156" rx="1.438" ry="3.906"/>
+<circle fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" cx="49.5" cy="49" r="46"/>
+<g>
+	<line fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" x1="9.271" y1="71.628" x2="71.128" y2="9.771"/>
+	<line fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" x1="17.026" y1="81.576" x2="82.801" y2="15.801"/>
+	<line fill="none" stroke="#000000" stroke-width="6" stroke-miterlimit="10" x1="26.872" y1="89.229" x2="88.729" y2="27.372"/>
+</g>
+<rect x="29.833" y="80" fill="#1E1E1C" width="39.334" height="3.333"/>
+</svg>
