@@ -100,6 +100,16 @@
                   <img v-if="data.value.src" :src="data.value.src" :alt="data.value.name"/>
                 </div>
               </template>
+              <template #cell(info)="data">
+                <div v-if="data.value.length > 0" class="row">
+                  <div class="col" v-for="(inf, index) in data.value" :key="index">
+                    <div v-if="inf.type === 'string'"><h4>{{ inf.content }}</h4></div>
+                    <div v-if="inf.type === 'image'" style="text-align: center">
+                      <img v-if="inf.content.src" :src="inf.content.src"  :alt="inf.content.name"/>
+                    </div>
+                  </div>
+                </div>
+              </template>
               <template #cell(actions)="data">
                 <div style="text-align: end">
                   <b-icon-trash style="cursor: pointer" @click="onDeleteIndication(data.index)"></b-icon-trash>

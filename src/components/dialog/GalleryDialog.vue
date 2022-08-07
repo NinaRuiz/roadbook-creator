@@ -12,16 +12,44 @@
 import {defineComponent} from "vue";
 
 export default defineComponent({
+  props: {
+    isInfo: {
+      type: Boolean,
+      require: true,
+      default: false
+    }
+  },
   data() {
     return {
       images: [],
     }
   },
   mounted() {
-    this.importAll(require.context('../../assets/res/galery/', true, /\.gif$/));
-    this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
-    this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
-    this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
+    if (!this.isInfo) {
+      this.importAll(require.context('../../assets/res/fia/', true, /\.svg$/));
+      this.importAll(require.context('../../assets/res/fia/', true, /\.gif$/));
+      this.importAll(require.context('../../assets/res/fia/', true, /\.png$/));
+    } else {
+      this.importAll(require.context('../../assets/res/galery/', true, /\.gif$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
+    }
+  },
+  watch: {
+    isInfo() {
+      this.images = [];
+      if (!this.isInfo) {
+        this.importAll(require.context('../../assets/res/fia/', true, /\.svg$/));
+        this.importAll(require.context('../../assets/res/fia/', true, /\.gif$/));
+        this.importAll(require.context('../../assets/res/fia/', true, /\.png$/));
+      } else {
+        this.importAll(require.context('../../assets/res/galery/', true, /\.gif$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
+      }
+    }
   },
   methods: {
     importAll(r) {
