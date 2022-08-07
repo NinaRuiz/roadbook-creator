@@ -29,6 +29,9 @@ export default defineComponent({
       this.importAll(require.context('../../assets/res/fia/', true, /\.svg$/));
       this.importAll(require.context('../../assets/res/fia/', true, /\.gif$/));
       this.importAll(require.context('../../assets/res/fia/', true, /\.png$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
+      this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
     } else {
       this.importAll(require.context('../../assets/res/galery/', true, /\.gif$/));
       this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
@@ -43,6 +46,9 @@ export default defineComponent({
         this.importAll(require.context('../../assets/res/fia/', true, /\.svg$/));
         this.importAll(require.context('../../assets/res/fia/', true, /\.gif$/));
         this.importAll(require.context('../../assets/res/fia/', true, /\.png$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
+        this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
       } else {
         this.importAll(require.context('../../assets/res/galery/', true, /\.gif$/));
         this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
