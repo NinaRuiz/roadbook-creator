@@ -11,6 +11,7 @@
             v-model="totalkm"
             type="number"
             placeholder="Introduce el kilometro en el que te encontrarás"
+            :disabled="indication != null"
             required
         ></b-form-input>
       </b-form-group>
@@ -47,7 +48,7 @@
     <GalleryDialog ref="gallery" @select="onSelectImage"/>
     <template #modal-footer>
       <b-button @click="onSaveClick">Guardar</b-button>
-      <b-button>Cancelar</b-button>
+      <b-button @click="onCancelClick">Cancelar</b-button>
     </template>
   </b-modal>
 </template>
@@ -58,12 +59,28 @@ import GalleryDialog from "@/components/dialog/GalleryDialog.vue";
 
 export default defineComponent({
   components: {GalleryDialog},
+  props: {
+    indication: {
+      type: Object,
+      required: false
+    }
+  },
   data() {
     return {
       totalkm: 0,
       parcialKm: 0,
       info: "",
       selectedImg: {},
+    }
+  },
+  watch: {
+    indication() {
+      if (this.indication != null) {
+        this.totalkm = this.indication.totalkm;
+        this.parcialKm = this.indication.parcialKm;
+        this.info = this.indication.info;
+        this.selectedImg = this.indication.directionSrc;
+      }
     }
   },
   methods: {
@@ -81,6 +98,13 @@ export default defineComponent({
         directionSrc: this.selectedImg,
       }
       this.$emit("save", indication);
+      this.totalkm = 0;
+      this.parcialKm = 0;
+      this.info = "";
+      this.selectedImg = {};
+      (this.$refs.modal as any).hide();
+    },
+    onCancelClick() {
       this.totalkm = 0;
       this.parcialKm = 0;
       this.info = "";

@@ -34,7 +34,6 @@ export default {
             html += `<h4 style="text-align: center">${indication.parcialKm}</h4>`;
             html += '</td><td style="border: 1px solid black; border-collapse: collapse;">';
             html += '<div style="text-align: center">';
-            console.log(indication);
             html += `<img src="${indication.directionSrc.src}" height="100"/>`;
             html += '</div>';
             html += '</td><td style="border: 1px solid black; border-collapse: collapse;">';

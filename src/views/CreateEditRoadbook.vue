@@ -94,7 +94,7 @@
             </div>
           </b-card-header>
           <b-card-body>
-            <b-table v-if="indications.length > 0" :items="indications" :fields="tableFields">
+            <b-table v-if="indications.length > 0" ref="table" :items="indications" :fields="tableFields">
               <template #cell(directionSrc)="data">
                 <div style="text-align: center">
                   <img v-if="data.value.src" :src="data.value.src" :alt="data.value.name"/>
@@ -103,6 +103,7 @@
               <template #cell(actions)="data">
                 <div style="text-align: end">
                   <b-icon-trash style="cursor: pointer" @click="onDeleteIndication(data.index)"></b-icon-trash>
+                  <b-icon-pencil style="cursor: pointer" @click="onEditIndication(data.index)"></b-icon-pencil>
                 </div>
               </template>
             </b-table>
@@ -110,7 +111,7 @@
         </b-card>
       </b-card-body>
     </b-card>
-    <CreateIndicationDialog ref="indication-dialog" @save="onSaveIndication"/>
+    <CreateIndicationDialog ref="indication-dialog" @save="onSaveIndication" :indication="selectedIndication"/>
   </div>
 </template>
 
@@ -137,6 +138,7 @@ export default defineComponent({
       description: "",
       indications: [] as any[],
       finishedRoadbook: {},
+      selectedIndication: null,
     }
   },
   mounted() {
@@ -152,6 +154,12 @@ export default defineComponent({
     }
   },
   methods: {
+    onEditIndication(index: number) {
+      this.selectedIndication = this.indications[index];
+      this.$nextTick(() => {
+        (this.$refs["indication-dialog"] as any).$refs.modal.show()
+      });
+    },
     onDeleteIndication(index: number) {
       let copyIndications = this.indications;
       delete copyIndications[index];
@@ -166,7 +174,22 @@ export default defineComponent({
       (this.$refs["indication-dialog"] as any).$refs.modal.show()
     },
     onSaveIndication(indication: any) {
+
+      if (!this.indications.find((ind) => ind.totalkm === indication.totalkm)) {
+        this.addNewIndication(indication);
+      } else {
+        this.saveIndication(indication);
+      }
+      this.selectedIndication = null;
+      (this.$refs["table"] as any).refresh();
+    },
+    addNewIndication(indication: any) {
       this.indications.push(indication);
+      this.saveRoadbook();
+    },
+    saveIndication(indication: any) {
+      let index = this.indications.findIndex((ind) => ind.totalkm === indication.totalkm)
+      this.indications[index] = indication;
       this.saveRoadbook();
     },
     saveRoadbook() {

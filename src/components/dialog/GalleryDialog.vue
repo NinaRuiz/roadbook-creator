@@ -22,7 +22,6 @@ export default defineComponent({
     this.importAll(require.context('../../assets/res/objects/', true, /\.gif$/));
     this.importAll(require.context('../../assets/res/objects/', true, /\.png$/));
     this.importAll(require.context('../../assets/res/objects/', true, /\.svg$/));
-    console.log(this.images);
   },
   methods: {
     importAll(r) {
