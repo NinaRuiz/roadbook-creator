@@ -29,6 +29,18 @@
         ></b-form-input>
       </b-form-group>
       <b-form-group
+          id="ig-degrees"
+          label="Grados:"
+          label-for="ip-degrees"
+      >
+        <b-form-input
+            id="ip-degrees"
+            v-model="degrees"
+            type="number"
+            placeholder="Introduce los grados de giro"
+        ></b-form-input>
+      </b-form-group>
+      <b-form-group
           id="ig-info"
           label="Información extra:"
           label-for="ip-info"
@@ -71,6 +83,7 @@ export default defineComponent({
       parcialKm: 0,
       info: "",
       selectedImg: {},
+      degrees: 0,
     }
   },
   watch: {
@@ -80,6 +93,7 @@ export default defineComponent({
         this.parcialKm = this.indication.parcialKm;
         this.info = this.indication.info;
         this.selectedImg = this.indication.directionSrc;
+        this.degrees = this.indication.degrees;
       }
     }
   },
@@ -96,12 +110,14 @@ export default defineComponent({
         parcialKm: this.parcialKm,
         info: this.info,
         directionSrc: this.selectedImg,
+        degrees: this.degrees,
       }
       this.$emit("save", indication);
       this.totalkm = 0;
       this.parcialKm = 0;
       this.info = "";
       this.selectedImg = {};
+      this.degrees = 0;
       (this.$refs.modal as any).hide();
     },
     onCancelClick() {
@@ -109,6 +125,7 @@ export default defineComponent({
       this.parcialKm = 0;
       this.info = "";
       this.selectedImg = {};
+      this.degrees = 0;
       (this.$refs.modal as any).hide();
     }
   }

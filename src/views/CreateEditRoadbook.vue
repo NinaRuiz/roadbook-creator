@@ -129,6 +129,7 @@ export default defineComponent({
         {key: 'parcialKm', label: 'Kilometro parcial'},
         {key: 'directionSrc', label: 'Dirección'},
         {key: 'info', label: 'Información'},
+        {key: 'degrees', label: 'Grados'},
         {key: 'actions', label: ''}
       ],
       title: "",
